@@ -110,6 +110,55 @@ Overall, this program takes a three-digit integer input from the user, checks th
 
 # Sructure_Programming_Basics/Problem2.c
 
+1. `#include <stdio.h>` - This line includes the standard input-output library for the program.
+
+2. `float calculate_minimum_payment(float annual_interest, float previous_balance) {`- This line declares the function `calculate_minimum_payment` which takes in two arguments - the annual interest rate and the previous balance. It returns the minimum monthly payment required to pay off the credit card balance within one year.
+
+3. `float monthly_interest_rate = annual_interest / 12.0f;` - This line calculates the monthly interest rate by dividing the annual interest rate by 12.
+
+4. `float lower_bound_payment = previous_balance / 12.0f;` - This line sets the initial lower bound of the monthly payment as the total balance divided by 12.
+
+5. `float upper_bound_payment = (previous_balance * (1.0f + monthly_interest_rate)) / 12.0f;` - This line sets the initial upper bound of the monthly payment as the balance plus monthly interest, divided by 12.
+
+6. `float minimum_monthly_payment = (lower_bound_payment + upper_bound_payment) / 2.0f;` - This line initializes the minimum monthly payment as the average of the upper and lower bounds.
+
+7. `while (1) {` - This line starts a loop that will continue indefinitely until broken out of.
+
+8. `float remaining_balance = previous_balance;` - This line initializes the remaining balance as the original balance.
+
+9. `for (int i = 0; i < 12; i++) {` - This line starts a loop that iterates 12 times, representing the 12 months in a year.
+
+10. `float unpaid_balance = remaining_balance - minimum_monthly_payment;` - This line calculates the unpaid balance for the current month by subtracting the minimum monthly payment from the remaining balance.
+
+11. `remaining_balance = unpaid_balance + (monthly_interest_rate * unpaid_balance);` - This line updates the remaining balance by adding the interest on the unpaid balance to the unpaid balance.
+
+12. `if (remaining_balance <= 0.0f) { break; }` - This line breaks out of the loop if the remaining balance is equal to or less than zero.
+
+13. `if (minimum_monthly_payment * 12.0f > previous_balance * (1.0f + monthly_interest_rate)) { upper_bound_payment = minimum_monthly_payment; }` - This line updates the upper bound for the monthly payment if the minimum monthly payment times 12 is greater than the previous balance plus monthly interest.
+
+14. `else { lower_bound_payment = minimum_monthly_payment; }` - This line updates the lower bound for the monthly payment if the minimum monthly payment times 12 is less than or equal to the previous balance plus monthly interest.
+
+15. `minimum_monthly_payment = (lower_bound_payment + upper_bound_payment) / 2.0f;` - This line updates the minimum monthly payment to be the average of the updated upper and lower bounds.
+
+16. `return minimum_monthly_payment;` - This line returns the minimum monthly payment required to pay off the credit card balance within one year.
+
+17. `int main() {` - This line starts the `main` function.
+
+18. `float balance, annual_interest;` - This line declares two variables - balance (the credit card balance) and annual_interest (the annual interest rate).
+
+19. `printf("Enter the balance: ");` - This line prompts the user to enter the credit card balance.
+
+20. `scanf("%f", &balance);` - This line reads in the credit card balance entered by the user.
+
+21. `printf("Enter the annual interest: ");` - This line prompts the user to enter the annual interest rate.
+
+22. `scanf("%f", &annual_interest);` - This line reads in the annual interest rate entered by the user.
+
+23. `float minimum_payment = calculate_minimum_payment(annual_interest, balance);` - This line calls the `calculate_minimum_payment` function to calculate the minimum monthly payment required to pay off the credit card balance within one year.
+
+24. `printf("The Lowest Payment: %.2f\n", minimum_payment);` - This line outputs the minimum monthly payment required to pay off the credit card balance within one year, with two decimal places.
+
+25. `return 0;` - This line returns a value of zero to indicate successful program execution.
 
 
 
