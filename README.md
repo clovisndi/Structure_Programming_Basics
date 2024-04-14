@@ -86,7 +86,31 @@ Sure, let me explain this code line by line:
 23. `return 0;`: This line marks the end of the program, and returns 0 to indicate the successful termination of the program.
 
 
-# Structure_Programming_Basics/
+# Structure_Programming_Basics/magical_number.c
+
+This program takes a three-digit integer input from the user, checks if it is a "magic number" (i.e., a palindrome), and outputs a message indicating whether or not it is.
+
+The important lines of code include:
+
+1. Lines 3-4 declare the variables `num` and `reversed` as integers, and `originalNum` as an integer that stores the original input value.
+
+2. Lines 6-7 prompt the user to enter a three-digit integer, and read the input value into the `num` variable.
+
+3. Lines 10-14 use an if statement to check that the input value is positive and has exactly three-digits. If either of these conditions is not met, the program prints an error message and returns a status code of 1, indicating a failure to execute the program.
+
+4. Line 16 stores the original input value in the `originalNum` variable for output.
+
+5. Lines 19-23 use a while loop to reverse the `num` variable. `reversed` is first multiplied by 10 and then added to `num % 10` (the ones digit of `num`). Finally, `num` is updated to remove the last digit by dividing by 10.
+
+6. Lines 26-29 use an if statement to check if the reversed value `reversed` is equal to the original value `originalNum`. If they are equal, the program prints a message indicating that the input is a "magic number". If they are not equal, the program prints a message indicating that the input is not a "magic number".
+
+7. Line 31 returns 0 to indicate successful execution of the program.
+
+Overall, this program takes a three-digit integer input from the user, checks that it is a valid input (positive and three-digit), checks if it is a palindrome or "magic number", and outputs an appropriate message to the console indicating the result.
+
+# Sructure_Programming_Basics/Problem2.c
+
+
 
 
 
